@@ -21,10 +21,18 @@
             "desc_key": "TARGET_PLATFORM_DESC"
         },   
         {
+            "name": "NAME",
+            "type": "Text",
+            "required": "true",
+            "default_value": "myApplicationName",
+            "label_key": "NAME_KEY",
+            "desc_key": "NAME_DESC"
+        },
+        {
             "name": "RAMPUP_DURATION",
             "type": "Text",
             "required": "true",
-            "default_value": "10",
+            "default_value": "60",
             "label_key": "RAMPUP_DURATION_KEY",
             "desc_key": "RAMPUP_DURATION_DESC"
         }
@@ -39,10 +47,13 @@
         "type": "JenkinsDocker",
         "shell": "#!/bin/bash
 export INIT_START_TIME=$(date +\"%s\")
-export RAMPUP_DURATION=#RAMPUP_DURATION#
 export TARGET_PLATFORM=#TARGET_PLATFORM#
+export NAME=#NAME#
+export RAMPUP_DURATION=#RAMPUP_DURATION#
 set +x
-set +e"
+set +e
+git_retry clone https://github.com/Osthanes/update_service.git activedeploy
+activedeploy/activedeploy_step_1.sh"
     }
     },
     "project": "https://hub.jazz.net/project/alchemy/Alchemy-Ostanes",
