@@ -82,6 +82,7 @@ trap \"save_env_vars_on_exit\" EXIT
 #COMMAND#
 __EOF__
 # call the script in a subscript
+cat script.sh
 /bin/bash -e script.sh
 PIPE_SCR_RESULT=$?
 # restore the saved exported vars
