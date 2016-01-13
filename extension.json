@@ -16,7 +16,7 @@
             "name": "TARGET_PLATFORM",
             "type": "Text",
             "required": "true",
-            "default_value": "CloudFoundary",
+            "default_value": "CloudFoundry",
             "label_key": "TARGET_PLATFORM_KEY",
             "desc_key": "TARGET_PLATFORM_DESC"
         },   
