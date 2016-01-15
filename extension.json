@@ -16,7 +16,7 @@
             "name": "RAMPUP_DURATION",
             "type": "Text",
             "required": "true",
-            "default_value": "60",
+            "default_value": "5m",
             "label_key": "RAMPUP_DURATION_KEY",
             "desc_key": "RAMPUP_DURATION_DESC"
         },
@@ -24,7 +24,7 @@
             "name": "RAMPDOWN_DURATION",
             "type": "Text",
             "required": "true",
-            "default_value": "60",
+            "default_value": "5m",
             "label_key": "RAMPDOWN_DURATION_KEY",
             "desc_key": "RAMPDOWN_DURATION_DESC"
         },
