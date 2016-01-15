@@ -13,28 +13,20 @@
     ],
     "params": [
         {
-            "name": "TARGET_PLATFORM",
-            "type": "Text",
-            "required": "true",
-            "default_value": "CloudFoundry",
-            "label_key": "TARGET_PLATFORM_KEY",
-            "desc_key": "TARGET_PLATFORM_DESC"
-        },   
-        {
-            "name": "NAME",
-            "type": "Text",
-            "required": "true",
-            "default_value": "myApplicationName",
-            "label_key": "NAME_KEY",
-            "desc_key": "NAME_DESC"
-        },
-        {
             "name": "RAMPUP_DURATION",
             "type": "Text",
             "required": "true",
             "default_value": "60",
             "label_key": "RAMPUP_DURATION_KEY",
             "desc_key": "RAMPUP_DURATION_DESC"
+        },
+        {
+            "name": "RAMPDOWN_DURATION",
+            "type": "Text",
+            "required": "true",
+            "default_value": "60",
+            "label_key": "RAMPDOWN_DURATION_KEY",
+            "desc_key": "RAMPDOWN_DURATION_DESC"
         },
         {
             "name": "COMMAND",
@@ -57,9 +49,8 @@ activedeploy/activedeploy_step_1.sh",
     "execution": {
         "type": "JenkinsDocker",
         "shell": "#!/bin/bash
-export TARGET_PLATFORM=#TARGET_PLATFORM#
-export NAME=#NAME#
 export RAMPUP_DURATION=#RAMPUP_DURATION#
+export RAMPDOWN_DURATION=#RAMPUP_DURATION#
 export INIT_START_TIME=$(date +\"%s\")
 # OSSC line
 dpkg -l | grep '^ii' > $EXT_DIR/pkglist
@@ -92,7 +83,7 @@ if [ $PIPE_SCR_RESULT -ne 0 ]; then
 fi"
     }
     },
-    "project": "https://hub.jazz.net/project/alchemy/Alchemy-Ostanes",
-    "project_example": "https://hub.jazz.net/pipeline/rjminsha/ice-pipeline_demo",
-    "project_contact": "rjminsha@us.ibm.com"
+    "project": "https://github.com/Osthanes/update_service",
+    "project_example": "https://github.com/IBM-Bluemix/active-deploy/",
+    "project_contact": "eergun@us.ibm.com"
 }
