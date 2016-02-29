@@ -54,13 +54,12 @@ export RAMPUP_DURATION=#RAMPUP_DURATION#
 export RAMPDOWN_DURATION=#RAMPDOWN_DURATION#
 export INIT_START_TIME=$(date +\"%s\")
 # OSSC line
-echo EXT_DIR=$EXT_DIR
 dpkg -l | grep '^ii' > $EXT_DIR/pkglist
 . $EXT_DIR/_init.sh
 # OSSC line
 dpkg -l | grep '^ii' > $EXT_DIR/pkglist2
 if [[ $DEBUG -eq 1 ]]; then
-  echo diff $EXT_DIR/pkglist $EXT_DIR/pkglist2
+  diff $EXT_DIR/pkglist $EXT_DIR/pkglist2 || true
 fi
 INIT_END_TIME=$(date +\"%s\")
 INIT_EST_TIME=$(($INIT_END_TIME-$INIT_START_TIME))
