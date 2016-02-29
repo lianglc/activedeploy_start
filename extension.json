@@ -54,6 +54,7 @@ export RAMPUP_DURATION=#RAMPUP_DURATION#
 export RAMPDOWN_DURATION=#RAMPDOWN_DURATION#
 export INIT_START_TIME=$(date +\"%s\")
 # OSSC line
+echo "EXT_DIR=$EXT_DIR"
 dpkg -l | grep '^ii' > $EXT_DIR/pkglist
 . $EXT_DIR/_init.sh
 # OSSC line
