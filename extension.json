@@ -35,7 +35,7 @@
             "required": "true",
             "default_value": "#!/bin/bash
 source ${EXT_DIR}/git_util.sh
-git_retry clone https://github.com/Osthanes/update_service.git activedeploy
+git_retry clone https://github.com/${GIT_HOME}/update_service.git activedeploy
 activedeploy/activedeploy_step_1.sh",
             "label_key": "COMMAND_KEY",
             "desc_key": "COMMAND_DESC"
@@ -55,6 +55,7 @@ set +e
 export RAMPUP_DURATION=#RAMPUP_DURATION#
 export RAMPDOWN_DURATION=#RAMPDOWN_DURATION#
 export INIT_START_TIME=$(date +\"%s\")
+export GIT_HOME=${GIT_HOME:-Osthanes}
 # OSSC line
 dpkg -l | grep '^ii' > $EXT_DIR/pkglist
 . $EXT_DIR/_init.sh
