@@ -30,6 +30,24 @@
             "desc_key": "RAMPDOWN_DURATION_DESC"
         },
         {
+            "name": "DEPLOYMENT_METHOD",
+            "type": "Seclect",
+            "required": "true",
+            "default_value": "Red Black",
+            "label_key": "DEPLOYMENT_METHOD_KEY",
+            "desc_key": "DEPLOYMENT_METHOD_DESC",
+            "options": [
+                {
+                  "label_key": "RED_BLACK_KEY",
+                  "value": "Red Black"
+                },
+                {
+                  "label_key": "RESOURCE_OPTIMZED_KEY",
+                  "value": "Resource Optimized"
+                }
+            ]
+        },
+        {
             "name": "COMMAND",
             "type": "TextArea",
             "required": "true",
