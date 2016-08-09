@@ -1,4 +1,4 @@
-{
+bluemix{
     "id": "ibm.devops.services.pipeline.devops.ad_start_stage1",
     "version": 1,
     "name_key": "ExtName",
@@ -30,7 +30,7 @@
             "desc_key": "RAMPDOWN_DURATION_DESC"
         },
         {
-            "name": "DEPLOYMENT_METHOD",
+            "name": "DEPLOYMENT_METHOD_NAME",
             "type": "Select",
             "required": "true",
             "default_value": "Red Black",
@@ -70,9 +70,10 @@ activedeploy/activedeploy_step_1.sh",
         "shell": "#!/bin/bash
 
 set +e
+set -x
 export RAMPUP_DURATION=#RAMPUP_DURATION#
 export RAMPDOWN_DURATION=#RAMPDOWN_DURATION#
-export DEPLOYMENT_METHOD=\"#DEPLOYMENT_METHOD#\"
+export DEPLOYMENT_METHOD=\"#DEPLOYMENT_METHOD_NAME#\"
 export INIT_START_TIME=$(date +\"%s\")
 export GIT_HOME=${GIT_HOME:-IBMActiveDeploy-Toolchain}
 # OSSC line
