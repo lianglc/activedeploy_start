@@ -30,7 +30,7 @@
             "desc_key": "RAMPDOWN_DURATION_DESC"
         },
         {
-            "name": "DEPLOYMENT_METHOD_NAME",
+            "name": "DEPLOYMENT_METHOD",
             "type": "Select",
             "required": "true",
             "default_value": "Red Black",
@@ -73,7 +73,7 @@ set +e
 set -x
 export RAMPUP_DURATION=#RAMPUP_DURATION#
 export RAMPDOWN_DURATION=#RAMPDOWN_DURATION#
-export DEPLOYMENT_METHOD=\"#DEPLOYMENT_METHOD_NAME#\"
+export DEPLOYMENT_METHOD=\"#DEPLOYMENT_METHOD#\"
 export INIT_START_TIME=$(date +\"%s\")
 export GIT_HOME=${GIT_HOME:-IBMActiveDeploy-Toolchain}
 # OSSC line
