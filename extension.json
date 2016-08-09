@@ -72,7 +72,7 @@ activedeploy/activedeploy_step_1.sh",
 set +e
 export RAMPUP_DURATION=#RAMPUP_DURATION#
 export RAMPDOWN_DURATION=#RAMPDOWN_DURATION#
-export DEVELOPMENT_METHOD=#DEVELOPMENT_METHOD#
+export DEPLOYMENT_METHOD=#DEPLOYMENT_METHOD#
 export INIT_START_TIME=$(date +\"%s\")
 export GIT_HOME=${GIT_HOME:-IBMActiveDeploy-Toolchain}
 # OSSC line
