@@ -31,7 +31,7 @@
         },
         {
             "name": "DEPLOYMENT_METHOD",
-            "type": "Seclect",
+            "type": "Select",
             "required": "true",
             "default_value": "Red Black",
             "label_key": "DEPLOYMENT_METHOD_KEY",
