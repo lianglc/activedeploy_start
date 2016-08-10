@@ -70,12 +70,15 @@ activedeploy/activedeploy_step_1.sh",
         "shell": "#!/bin/bash
 
 set +e
-set -x
+if [[ ${DEBUG_EXTENSION} -eq 1 ]]; then
+  set -x
+fi
 export RAMPUP_DURATION=#RAMPUP_DURATION#
 export RAMPDOWN_DURATION=#RAMPDOWN_DURATION#
 export DEPLOYMENT_METHOD=\"#DEPLOYMENT_METHOD#\"
 export INIT_START_TIME=$(date +\"%s\")
 export GIT_HOME=${GIT_HOME:-IBMActiveDeploy-Toolchain}
+export GIT_BRANCH=${GIT_BRANCH:-master}
 # OSSC line
 dpkg -l | grep '^ii' > $EXT_DIR/pkglist
 . $EXT_DIR/_init.sh
@@ -104,10 +107,13 @@ PIPE_SCR_RESULT=$?
 source $EXT_DIR/save_vars.sh
 if [ $PIPE_SCR_RESULT -ne 0 ]; then
     exit $PIPE_SCR_RESULT
+fi
+if [[ ${DEBUG_EXTENSION} -eq 1 ]]; then
+  set -x
 fi"
     }
     },
     "project": "https://github.com/IBMActiveDeploy-Toolchain/update_service",
     "project_example": "https://github.com/IBM-Bluemix/active-deploy/",
-    "project_contact": "eergun@us.ibm.com"
+    "project_contact": "taube@de.ibm.com"
 }
