@@ -78,7 +78,6 @@ export RAMPDOWN_DURATION=#RAMPDOWN_DURATION#
 export DEPLOYMENT_METHOD=\"#DEPLOYMENT_METHOD#\"
 export INIT_START_TIME=$(date +\"%s\")
 export GIT_HOME=${GIT_HOME:-IBMActiveDeploy-Toolchain}
-export GIT_BRANCH=${GIT_BRANCH:-master}
 # OSSC line
 dpkg -l | grep '^ii' > $EXT_DIR/pkglist
 . $EXT_DIR/_init.sh
