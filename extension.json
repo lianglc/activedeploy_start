@@ -1,5 +1,5 @@
 {
-    "id": "ibm.devops.services.pipeline.devops.ad_start_stage1",
+    "id": "ibm.devops.services.pipeline.devops.ad_start",
     "version": 1,
     "name_key": "ExtName",
     "desc_key": "ExtDesc",
@@ -70,9 +70,7 @@ activedeploy/activedeploy_step_1.sh",
         "shell": "#!/bin/bash
 
 set +e
-if [[ ${DEBUG_EXTENSION} -eq 1 ]]; then
-  set -x
-fi
+[[ ${DEBUG_EXTENSION} -eq 1 ]] && set -x
 export RAMPUP_DURATION=#RAMPUP_DURATION#
 export RAMPDOWN_DURATION=#RAMPDOWN_DURATION#
 export DEPLOYMENT_METHOD=\"#DEPLOYMENT_METHOD#\"
@@ -90,7 +88,8 @@ if [[ $DEBUG -eq 1 ]]; then
 fi
 INIT_END_TIME=$(date +\"%s\")
 INIT_EST_TIME=$(($INIT_END_TIME-$INIT_START_TIME))
-echo -e \"Init runtime of `date -u -d @\"$INIT_EST_TIME\" +\'%-Mm %-Ss\'`\"# place command into a temp script file
+echo -e \"Init runtime of `date -u -d @\"$INIT_EST_TIME\" +\'%-Mm %-Ss\'`\"
+# place command into a temp script file
 cat > script.sh << '__EOF__'
 #!/bin/bash
 function save_env_vars_on_exit() {
@@ -101,7 +100,7 @@ trap \"save_env_vars_on_exit\" EXIT
 #COMMAND#
 __EOF__
 # call the script in a subscript
-cat script.sh
+[[ ${DEBUG_EXTENSION} -eq 1 ]] && cat script.sh
 /bin/bash -e script.sh
 PIPE_SCR_RESULT=$?
 # restore the saved exported vars
@@ -109,9 +108,8 @@ source $EXT_DIR/save_vars.sh
 if [ $PIPE_SCR_RESULT -ne 0 ]; then
     exit $PIPE_SCR_RESULT
 fi
-if [[ ${DEBUG_EXTENSION} -eq 1 ]]; then
-  set -x
-fi"
+[[ ${DEBUG_EXTENSION} -eq 1 ]] && set +x
+"
     }
     },
     "project": "https://github.com/IBMActiveDeploy-Toolchain/update_service",
