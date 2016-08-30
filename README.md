@@ -9,4 +9,6 @@ For more details, see [here](https://console.ng.bluemix.net/docs/services/Active
 
 ### License
 
+### License
+
 Please refer to the [License](https://github.com/IBMActiveDeploy-Toolchain/activedeploy_start/blob/master/License.txt) text file in this package.
