@@ -6,3 +6,5 @@ A pipeline job created from this extension must be used in the same stage with a
 of the successor app and a job to complete the active deploy.
 
 For more details, see [here](https://hub.jazz.net/docs/deploy_ext/).
+
+Please refer to the [License](https://github.com/IBMActiveDeploy-Toolchain/activedeploy_start/blob/master/License.txt) text file in this package.
