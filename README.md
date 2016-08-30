@@ -7,4 +7,6 @@ of the successor app and a job to complete the active deploy.
 
 For more details, see [here](https://hub.jazz.net/docs/deploy_ext/).
 
+### License
+
 Please refer to the [License](https://github.com/IBMActiveDeploy-Toolchain/activedeploy_start/blob/master/License.txt) text file in this package.
