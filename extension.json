@@ -66,7 +66,6 @@
 # Make sure following variables are defined as environment properties with no values
 # - NAME : Name of new application (Has to be exported in the previous job)
 # - TEST_RESULT_FOR_AD : Variable used to pass the test result of the test phase to the complete phase of active deploy (Has to be set in the test job)
-# - DEPLOY_TYPE : Required only for container group deployments (Is set by container deployment job)
 #
 # Following variables may be defined as environment properties
 # - GROUP_SIZE : Number of instances which are created during initial deployment. Default is 1
